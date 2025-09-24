@@ -31,7 +31,7 @@ import github.com/cathcv/deadline
 	)
 	mux.Handle(path, handler)
 
-	mux1 := deadline.WriteReadTimeoutMiddleware(mux, 20*time.Second, 10*time.Second)
+	mux1 := deadline.TimeoutMiddleware(mux, 20*time.Second)
 
 ...
 
