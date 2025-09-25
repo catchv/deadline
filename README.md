@@ -23,7 +23,9 @@ go get -u github.com/cathcv/deadline
 ```
 import github.com/cathcv/deadline
 
-...
+```
+
+```
 
 	mux := http.NewServeMux()
 	path, handler := greetv1connect.NewGreetServiceHandler(greeter,
@@ -33,8 +35,18 @@ import github.com/cathcv/deadline
 
 	mux1 := deadline.TimeoutMiddleware(mux, 20*time.Second)
 
-...
+```
+or
+```
+	mux := http.NewServeMux()
+	path, handler := greetv1connect.NewGreetServiceHandler(greeter,
+		handlerOptions...,
+	)
 
+	mux.Handle(path, deadline.TimeoutMiddleware(handler, 8*time.Second))
+```
+
+```
 	srv := &http.Server{
 		Addr:              "localhost:8080",
 		Handler:           h2c.NewHandler(mux1, &http2.Server{}), // Use h2c so we can serve HTTP/2 without TLS.
