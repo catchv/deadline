@@ -1,4 +1,4 @@
-# deadlin v1.0.0
+# deadlin v1.0.2
 
 
 ## connect-go에서 지원되지 않는 read, write timeout을 지원하는 middleware
